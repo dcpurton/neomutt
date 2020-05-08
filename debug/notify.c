@@ -139,6 +139,8 @@ static const char *get_mailbox_event(int id)
       return "invalid";
     case NT_MAILBOX_RESORT:
       return "resort";
+    case NT_MAILBOX_SWITCH:
+      return "switch";
     case NT_MAILBOX_UPDATE:
       return "update";
     case NT_MAILBOX_UNTAG:
@@ -257,11 +259,17 @@ static void notify_dump_window(struct NotifyCallback *nc)
 {
   struct EventWindow *ev_w = nc->event_data;
   const struct MuttWindow *win = ev_w->win;
+  enum NotifyWindow subtype = nc->event_subtype;
   WindowNotifyFlags flags = ev_w->flags;
 
   struct Buffer buf = mutt_buffer_make(128);
 
   mutt_buffer_add_printf(&buf, "[%s] ", win_name(win));
+
+  if (subtype == NT_WINDOW_NEW)
+    mutt_buffer_add_printf(&buf, "new ");
+  if (subtype == NT_WINDOW_DELETE)
+    mutt_buffer_add_printf(&buf, "deleted ");
 
   if (flags & WN_VISIBLE)
     mutt_buffer_addstr(&buf, "visible ");
@@ -319,9 +327,6 @@ int debug_notify_observer(struct NotifyCallback *nc)
     case NT_GLOBAL:
       notify_dump_global(nc);
       break;
-    // case NT_INDEX:
-    //   notify_dump_index(nc);
-    //   break;
     case NT_MAILBOX:
       notify_dump_mailbox(nc);
       break;

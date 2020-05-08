@@ -27,9 +27,9 @@
 
 #include <stdbool.h>
 #include <stdint.h>
-#include "mutt/lib.h"
 #include "mutt_commands.h"
 
+struct Buffer;
 struct Mailbox;
 struct MuttWindow;
 struct SidebarWindowData;
