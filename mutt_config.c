@@ -69,7 +69,6 @@
 #include "score.h"
 #include "send.h"
 #include "sendlib.h"
-#include "sidebar.h"
 #include "smtp.h"
 #include "sort.h"
 #include "status.h"
@@ -82,6 +81,9 @@
 #include "nntp/lib.h"
 #include "notmuch/lib.h"
 #include "pop/lib.h"
+#ifdef USE_SIDEBAR
+#include "sidebar/lib.h"
+#endif
 #endif
 
 #ifndef ISPELL

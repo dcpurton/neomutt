@@ -80,7 +80,7 @@
 #include <libintl.h>
 #endif
 #ifdef USE_SIDEBAR
-#include "sidebar.h"
+#include "sidebar/lib.h"
 #endif
 #ifdef USE_IMAP
 #include "imap/lib.h"
