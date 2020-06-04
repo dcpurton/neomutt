@@ -29,13 +29,12 @@
 #include "config.h"
 #include <stdbool.h>
 #include "private.h"
-#include "mutt/lib.h"
 #include "core/lib.h"
-#include "gui/lib.h"
 #include "lib.h"
-#include "index.h"
 #include "mutt_menu.h"
 #include "opcodes.h"
+
+struct MuttWindow;
 
 /**
  * select_next - Selects the next unhidden mailbox
