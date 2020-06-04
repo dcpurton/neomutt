@@ -3698,7 +3698,7 @@ struct ConfigDef MuttVars[] = {
   */
 #endif
 #ifdef USE_SIDEBAR
-  { "sidebar_component_depth", DT_NUMBER|R_SIDEBAR, &C_SidebarComponentDepth, 0 },
+  { "sidebar_component_depth", DT_NUMBER, &C_SidebarComponentDepth, 0 },
   /*
   ** .pp
   ** By default the sidebar will show the mailbox's path, relative to the
@@ -3710,7 +3710,7 @@ struct ConfigDef MuttVars[] = {
   ** .pp
   ** \fBSee also:\fP $$sidebar_short_path
   */
-  { "sidebar_delim_chars", DT_STRING|R_SIDEBAR, &C_SidebarDelimChars, IP "/." },
+  { "sidebar_delim_chars", DT_STRING, &C_SidebarDelimChars, IP "/." },
   /*
   ** .pp
   ** This contains the list of characters which you would like to treat
@@ -3728,21 +3728,21 @@ struct ConfigDef MuttVars[] = {
   ** .pp
   ** \fBSee also:\fP $$sidebar_short_path, $$sidebar_folder_indent, $$sidebar_indent_string.
   */
-  { "sidebar_divider_char", DT_STRING|R_SIDEBAR, &C_SidebarDividerChar, 0 },
+  { "sidebar_divider_char", DT_STRING, &C_SidebarDividerChar, 0 },
   /*
   ** .pp
   ** This specifies the characters to be drawn between the sidebar (when
   ** visible) and the other NeoMutt panels. ASCII and Unicode line-drawing
   ** characters are supported.
   */
-  { "sidebar_folder_indent", DT_BOOL|R_SIDEBAR, &C_SidebarFolderIndent, false },
+  { "sidebar_folder_indent", DT_BOOL, &C_SidebarFolderIndent, false },
   /*
   ** .pp
   ** Set this to indent mailboxes in the sidebar.
   ** .pp
   ** \fBSee also:\fP $$sidebar_short_path, $$sidebar_indent_string, $$sidebar_delim_chars.
   */
-  { "sidebar_format", DT_STRING|DT_NOT_EMPTY|R_SIDEBAR, &C_SidebarFormat, IP "%B%*  %n" },
+  { "sidebar_format", DT_STRING|DT_NOT_EMPTY, &C_SidebarFormat, IP "%B%*  %n" },
   /*
   ** .pp
   ** This variable allows you to customize the sidebar display. This string is
@@ -3778,7 +3778,7 @@ struct ConfigDef MuttVars[] = {
   ** be \fIset\fP.  When thus set, a suggested value for this option is
   ** "%B%?F? [%F]?%* %?N?%N/?%S".
   */
-  { "sidebar_indent_string", DT_STRING|R_SIDEBAR, &C_SidebarIndentString, IP "  " },
+  { "sidebar_indent_string", DT_STRING, &C_SidebarIndentString, IP "  " },
   /*
   ** .pp
   ** This specifies the string that is used to indent mailboxes in the sidebar.
@@ -3786,7 +3786,7 @@ struct ConfigDef MuttVars[] = {
   ** .pp
   ** \fBSee also:\fP $$sidebar_short_path, $$sidebar_folder_indent, $$sidebar_delim_chars.
   */
-  { "sidebar_new_mail_only", DT_BOOL|R_SIDEBAR, &C_SidebarNewMailOnly, false },
+  { "sidebar_new_mail_only", DT_BOOL, &C_SidebarNewMailOnly, false },
   /*
   ** .pp
   ** When set, the sidebar will only display mailboxes containing new, or
@@ -3802,7 +3802,7 @@ struct ConfigDef MuttVars[] = {
   ** \fC<sidebar-prev-new>\fP command is similarly affected, wrapping around to
   ** the end of the list.
   */
-  { "sidebar_non_empty_mailbox_only", DT_BOOL|R_SIDEBAR, &C_SidebarNonEmptyMailboxOnly, false },
+  { "sidebar_non_empty_mailbox_only", DT_BOOL, &C_SidebarNonEmptyMailboxOnly, false },
   /*
   ** .pp
   ** When set, the sidebar will only display mailboxes that contain one or more mails.
@@ -3814,7 +3814,7 @@ struct ConfigDef MuttVars[] = {
   ** .pp
   ** When set, the sidebar will appear on the right-hand side of the screen.
   */
-  { "sidebar_short_path", DT_BOOL|R_SIDEBAR, &C_SidebarShortPath, false },
+  { "sidebar_short_path", DT_BOOL, &C_SidebarShortPath, false },
   /*
   ** .pp
   ** By default the sidebar will show the mailbox's path, relative to the
@@ -3831,7 +3831,7 @@ struct ConfigDef MuttVars[] = {
   ** \fBSee also:\fP $$sidebar_delim_chars, $$sidebar_folder_indent,
   ** $$sidebar_indent_string, $$sidebar_component_depth.
   */
-  { "sidebar_sort_method", DT_SORT|DT_SORT_SIDEBAR|R_SIDEBAR, &C_SidebarSortMethod, SORT_ORDER },
+  { "sidebar_sort_method", DT_SORT|DT_SORT_SIDEBAR, &C_SidebarSortMethod, SORT_ORDER },
   /*
   ** .pp
   ** Specifies how to sort entries in the file browser.  By default, the
