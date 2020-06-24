@@ -23,11 +23,7 @@
 #ifndef MUTT_EDIT_H
 #define MUTT_EDIT_H
 
-struct Email;
-
 /* These Config Variables are only used in edit.c */
 extern char *C_Escape;
-
-int mutt_builtin_editor(const char *path, struct Email *e_new, struct Email *e_cur);
 
 #endif /* MUTT_EDIT_H */
