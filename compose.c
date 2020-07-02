@@ -1700,6 +1700,10 @@ int mutt_compose_menu(struct Email *e, struct Buffer *fcc, struct Email *e_cur, 
             {
               actx->idx[j] = actx->idx[j + 1];
               actx->idx[j + 1] = NULL; /* for debug reason */
+              if (j > 0)
+              {
+                actx->idx[j - 1]->content->next = actx->idx[j]->content;
+              }
             }
             actx->idxlen--;
           }
@@ -1720,6 +1724,10 @@ int mutt_compose_menu(struct Email *e, struct Buffer *fcc, struct Email *e_cur, 
         struct AttachPtr *gptr = mutt_mem_calloc(1, sizeof(struct AttachPtr));
         gptr->content = group;
         update_idx(menu, actx, gptr);
+
+        /* update e->content pointer */
+        e->content = actx->idx[0]->content;
+
         menu->redraw |= REDRAW_INDEX;
         break;
       }
@@ -1797,6 +1805,10 @@ int mutt_compose_menu(struct Email *e, struct Buffer *fcc, struct Email *e_cur, 
             {
               actx->idx[j] = actx->idx[j + 1];
               actx->idx[j + 1] = NULL; /* for debug reason */
+              if (j > 0)
+              {
+                actx->idx[j - 1]->content->next = actx->idx[j]->content;
+              }
             }
             actx->idxlen--;
           }
@@ -1817,6 +1829,10 @@ int mutt_compose_menu(struct Email *e, struct Buffer *fcc, struct Email *e_cur, 
         struct AttachPtr *gptr = mutt_mem_calloc(1, sizeof(struct AttachPtr));
         gptr->content = group;
         update_idx(menu, actx, gptr);
+
+        /* update e->content pointer */
+        e->content = actx->idx[0]->content;
+
         menu->redraw |= REDRAW_INDEX;
         break;
       }
