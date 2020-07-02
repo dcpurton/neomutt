@@ -1156,6 +1156,40 @@ static void compose_attach_swap(struct Body *msg, struct AttachPtr **idx, short 
 }
 
 /**
+ * compose_attach_make_fundamental - Make an attachment the fundamental part of the email
+ * @param[in]  e   Email
+ * @param[out] idx Array of Attachments
+ * @param[in]  new Index of attachment to make the body of the email
+ */
+static void compose_attach_make_fundamental(struct Email *e, struct AttachPtr **idx, short new)
+{
+  struct Body *saved_part = e->content;
+
+  /* Reorder Body pointers.
+   * Must traverse msg from top since Body has no previous ptr.  */
+  for (struct Body *part = e->content; part; part = part->next)
+  {
+    if (part->next == idx[new]->content)
+    {
+      part->next = idx[new]->content->next;
+      e->content = idx[new]->content;
+      e->content->next = saved_part;
+      break;
+    }
+  }
+
+  /* Reorder index and ptr->num */
+  struct AttachPtr *saved = idx[new];
+  for (short i = new; i > 0; i--)
+  {
+    idx[i] = idx[i - 1];
+    idx[i]->num += 1;
+  }
+  idx[0] = saved;
+  idx[0]->num = 0;
+}
+
+/**
  * cum_attachs_size - Cumulative Attachments Size
  * @param menu Menu listing attachments
  * @retval num Bytes in attachments
