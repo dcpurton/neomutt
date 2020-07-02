@@ -1645,6 +1645,17 @@ int mutt_compose_menu(struct Email *e, struct Buffer *fcc, struct Email *e_cur, 
         break;
       }
 
+      case OP_COMPOSE_MAKE_FUNDAMENTAL:
+        if (menu->current == 0)
+        {
+          mutt_error(_("Attachment is already the fundamental part"));
+          break;
+        }
+        compose_attach_make_fundamental(e, actx->idx, menu->current);
+        menu->redraw |= REDRAW_INDEX;
+        menu->current = 0;
+        break;
+
       case OP_COMPOSE_MOVE_UP:
         if (menu->current == 0)
         {

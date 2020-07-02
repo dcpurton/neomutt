@@ -499,6 +499,7 @@ const struct Binding OpCompose[] = { /* map: compose */
 #ifdef MIXMASTER
   { "mix",                   OP_COMPOSE_MIX,                 "M" },
 #endif
+  { "make-fundamental",      OP_COMPOSE_MAKE_FUNDAMENTAL,    "_" },
   { "move-down",             OP_COMPOSE_MOVE_DOWN,           "+" },
   { "move-up",               OP_COMPOSE_MOVE_UP,             "-" },
   { "new-mime",              OP_COMPOSE_NEW_MIME,            "n" },

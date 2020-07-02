@@ -80,6 +80,7 @@
   _fmt(OP_COMPOSE_GROUP_ALTS,             N_("group tagged attachments as 'multipart/alternative'")) \
   _fmt(OP_COMPOSE_GROUP_LINGUAL,          N_("group tagged attachments as 'multipart/multilingual'")) \
   _fmt(OP_COMPOSE_ISPELL,                 N_("run ispell on the message")) \
+  _fmt(OP_COMPOSE_MAKE_FUNDAMENTAL,       N_("make an attachment the fundamental part")) \
   _fmt(OP_COMPOSE_MOVE_DOWN,              N_("move an attachment down in the attachment list")) \
   _fmt(OP_COMPOSE_MOVE_UP,                N_("move an attachment up in the attachment list")) \
   _fmt(OP_COMPOSE_NEW_MIME,               N_("compose new attachment using mailcap entry")) \
